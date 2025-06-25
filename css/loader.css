@@ -1,0 +1,43 @@
+.loader-container {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.drop {
+  width: 20px;
+  height: 20px;
+  background: #e63946;
+  border-radius: 50%;
+  animation: dropAnim 1s infinite ease-in-out;
+  margin: 0 10px;
+}
+
+.drop1 {
+  animation-delay: 0s;
+}
+.drop2 {
+  animation-delay: 0.2s;
+}
+.drop3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes dropAnim {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.5;
+  }
+}
