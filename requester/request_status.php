@@ -45,7 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notify_donor_id'])) {
     <style>
         body { background: #f4f7fc; font-family: 'Segoe UI', sans-serif; }
         .container { max-width: 960px; margin: auto; padding: 20px; }
-        h1, h2, h3 { color: #e74c3c; text-align: center; }
+        h1{}
+        h2, h3 { color: #e74c3c; text-align: center; }
         .request-detail-card, .request-item { background: #fff; border-radius: 8px; padding: 20px; margin: 20px auto; box-shadow: 0 3px 6px rgba(0,0,0,0.1); animation: fadeIn 0.6s ease-in-out; max-width: 840px; }
         .request-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
         .status-badge { padding: 6px 12px; border-radius: 20px; font-weight: bold; text-transform: capitalize; }
@@ -65,10 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notify_donor_id'])) {
 </head>
 <body>
 <?php include '../components/header.php'; ?>
+<h1>📝 Request Details</h1>
 
 <main class="container">
 <?php if (isset($request)): ?>
-    <h1 style="margin-bottom: 10px;">📝 Request Details</h1>
     <div class="request-detail-card">
         <div class="request-header">
             <h2><?= ucfirst($request['type']) ?> - <?= htmlspecialchars($request['patient_name']) ?></h2>

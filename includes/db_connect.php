@@ -1,5 +1,4 @@
-You said:
-how i<?php
+<?php
 $host = 'localhost';
 $dbname = 'jeevansetu';
 $username = 'root';

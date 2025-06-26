@@ -89,16 +89,43 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f6f9; }
-    .container { max-width: 1200px; margin: auto; padding: 2rem; }
+    :root {
+      --sidebar-width: 260px;
+      --header-height: 70px;
+    }
 
-    h1 { margin-bottom: 1rem; color: #e63946; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+    }
+
+    main.main-wrapper {
+      max-width: 1200px;
+      margin-left: var(--sidebar-width);
+      margin-top: var(--header-height);
+      padding: 2rem;
+      transition: margin 0.3s ease;
+    }
+
+    .sidebar.closed ~ main.main-wrapper {
+      margin-left: 0 !important;
+    }
+
+    h1 { margin-bottom: 1rem; color:rgba(1, 2, 65, 0.92); }
 
     .alert { padding: 1rem; border-radius: 6px; margin-bottom: 1.2rem; }
     .alert-success { background: #d4edda; color: #155724; }
     .alert-danger { background: #f8d7da; color: #721c24; }
 
-    .admin-filters { background: #fff; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .admin-filters {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
     .filter-group { display: inline-block; margin-right: 1rem; }
     .filter-group input, .filter-group select {
       padding: 0.5rem;
@@ -171,13 +198,20 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
       align-items: center;
       gap: 1rem;
     }
+
+    @media (max-width: 768px) {
+      main.main-wrapper {
+        margin-left: 0 !important;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
 <?php include '../components/admin_header.php'; ?>
 
-<main class="container">
+<main class="main-wrapper">
   <h1>Manage Users</h1>
 
   <?php if (isset($_SESSION['error'])): ?>
